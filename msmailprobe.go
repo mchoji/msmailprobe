@@ -453,7 +453,7 @@ func urlEnum(hostInput string) {
 	//target-com.mail.protection.outlook.com
 	hostSlice := strings.Split(hostInput, ".")
 	//rootDomain := hostSlice[len(hostSlice)-2] + "." + hostSlice[len(hostSlice)-1]
-	o365Domain := hostSlice[len(hostSlice)-2] + "-" + hostSlice[len(hostSlice)-1] + ".mail.protection.outlook.com"
+	o365Domain := strings.Join(hostSlice, "-") + ".mail.protection.outlook.com"
 	addr,err := net.LookupIP(o365Domain)
 	if err != nil {
 		fmt.Printf(BrightYellow,"[-] ")
